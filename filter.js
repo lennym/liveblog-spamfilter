@@ -1,7 +1,8 @@
 console.log('Running SPAMFILTER');
 
 function test (text) {
-    var newlines = text.split('\n').length;
+    console.log(text);
+    var newlines = text.split('<br>').length;
     return text.length > 10 && newlines < 10;
 }
 
@@ -10,7 +11,7 @@ function filter () {
 
     $comments.each(function () {
         var $comment = $(this);
-        var text = $comment.find('.Content').text();
+        var text = $comment.find('.Content').html();
         if (text && !test(text)) {
             console.log('HIDING SPAM COMMENT', text, $comment);
             $comment.hide();
