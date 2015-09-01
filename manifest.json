@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cricinfo comment filter",
+  "description": "Hides comments with short messages or spam-like features",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["*://liveblog.espncricinfo.com/*"],
+      "js": ["jquery.js", "filter.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
